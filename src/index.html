@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Fast track to Finland</title>
+    <link rel="icon" type="image/png"/>
 </head>
 <body>
 <div id="root">
@@ -19,5 +20,23 @@
         margin: 10em auto;
     }
 </style>
+<script>
+  window.onload = () => {
+    // Render emoji as favicon: https://koddsson.com/posts/emoji-favicon/
+    const favicon = document.querySelector('link[rel=icon]');
+    if (favicon) {
+      const emoji = "🇫🇮";
+      if (emoji) {
+        const canvas = document.createElement('canvas');
+        canvas.height = 64;
+        canvas.width = 64;
+        const ctx = canvas.getContext('2d');
+        ctx.font = '64px serif';
+        ctx.fillText(emoji, 0, 64);
+        favicon.href = canvas.toDataURL();
+      }
+    }
+  };
+</script>
 </body>
 </html>
